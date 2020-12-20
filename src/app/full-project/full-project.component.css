@@ -1,0 +1,16 @@
+.container{
+    
+    
+}
+/* *{
+    border: 1px solid black;
+} */
+
+.card-body{
+    height: 30rem;
+    overflow: scroll;
+}
+.mt{
+    margin-top:10px ;
+}
+

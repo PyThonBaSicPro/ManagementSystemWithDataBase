@@ -1,0 +1,88 @@
+<h1 class="bg-primary text-center text-white p-3 text-uppercase">User Management</h1>
+<div class="container">
+    <div class="d-flex w-100">
+        <div class="card w-100 " style="margin-right: 10px;">
+
+            <div class="card-header bg-primary text-white text-center">
+                Users List
+            </div>
+            <div class="card-body">
+                <div *ngFor="let item of user; let u=index">
+                    <div class="d-flex" style="justify-content: space-between;margin-bottom: 5px;">
+                        <h4>{{item}}</h4>
+                        <div>
+                            <button class="btn btn-warning" style="margin-right: 10px;">Edit</button>
+                            <button class="btn btn-danger" (click)="deleteUser(u)">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card w-100 ">
+            <div class="card-header bg-primary text-white text-center">
+                Admins List
+            </div>
+            <div class="card-body">
+                <div *ngFor="let accounts of admin;let i=index">
+                    <div class="d-flex" style="justify-content: space-between;margin-bottom: 5px;">
+                        <h4>{{accounts}}</h4>
+
+                        <div>
+                            <button class="btn btn-warning" style="margin-right: 10px;" >Edit</button>
+                            <button class="btn btn-danger" (click)="deleteAdmin(i)">Remove</button>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- account creation -->
+    <div class="d-flex justify-content-between" style="margin-top: 10px;">
+        <div class="card w-100 shadow" style="margin-right: 10px;">
+            <form>
+                <div class="card-header bg-primary text-white text-center">
+                    Create User Account
+                </div>
+
+                <div class="form-group mt" style="padding: 10px;">
+                    <label for="text1">Create User</label>
+                    <input type="text" class="form-control mt" id="text1" a placeholder="Enter Name" #usersval>
+                </div>
+                <button type="submit" class="btn btn-primary" style="margin: 10px;" (click)="userAdd(usersval)">Create
+                    User</button>
+                <button type="submit" class="btn btn-success" style="margin: 10px;" (click)="userSave()">Save
+                    Data</button>
+                <button type="submit" class="btn btn-dark" style="margin: 10px;" (click)="fetchUser()">Fetch
+                    Data</button>
+
+            </form>
+            <p style="margin-left: 10px; color: red;">The Length is {{user.length}}</p>
+        </div>
+
+
+        <div class="card w-100 shadow">
+            <form>
+                <div class="card-header bg-primary text-white text-center">
+                    Create Admin Account
+                </div>
+
+                <div class="form-group mt" style="padding: 10px;">
+                    <label for="exampleInputEmail1">Create Admin</label>
+                    <input type="text" class="form-control mt" id="exampleInputEmail1" placeholder="Enter Name"
+                        #adminAccount>
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="addAdmin(adminAccount)"
+                    style="margin: 10px;">Create Admin</button>
+                <button type="submit" class="btn btn-success" style="margin: 10px;" (click)="saveAdmin()">Save
+                    Data</button>
+                <button type="submit" class="btn btn-dark" style="margin: 10px;" (click)="fetchAdmin()">Fetch
+                    Data</button>
+            </form>
+            <p style="margin-left: 10px; color: red;">The Length is {{admin.length}}</p>
+        </div>
+    </div>
+</div>
